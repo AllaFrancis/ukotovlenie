@@ -4,7 +4,7 @@
 
 ## 🔗 Демонстрация
 
-👉 [https://github.io/ukotovlenie/](https://github.io/ukotovlenie/)
+👉 [https://allafrancis.github.io/ukotovlenie/](https://allafrancis.github.io/ukotovlenie/)
 
 ## 🛠️ Технологии
 
