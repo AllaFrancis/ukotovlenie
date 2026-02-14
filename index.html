@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Антикафе «Укотовление»</title>
+
+    <!-- convertico.com/Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicons/favicon.ico">
+    
+    <!-- Miligram CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/milligram@1.4.1/dist/milligram.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Собственные стили -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ХЕДЕР -->
+    <header class="header">
+        <div class="container">
+            <nav class="navigation">
+                <a href="#" class="logo">
+                    <img src="assets/logo.png" alt="Логотип" class="logo__image">
+                    <span class="logo__text">Укотовление</span>
+                </a>
+                <ul class="nav-links">
+                    <li class="nav-links__item"><a href="#about" class="nav-links__link">О нас</a></li>
+                    <li class="nav-links__item"><a href="#cats" class="nav-links__link">Наши котики</a></li>
+                    <li class="nav-links__item"><a href="#cafe" class="nav-links__link">Антикафе</a></li>
+                    <li class="nav-links__item"><a href="#book" class="nav-links__link">Бронирование</a></li>
+                    <li class="nav-links__item"><a href="#adopt" class="nav-links__link">Укотовить</a></li>
+                </ul>
+                <button class="burger-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ГЕРОЙ-СЕКЦИЯ -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero__title">Добро пожаловать в антикафе «Укотовление»</h1>
+            <p class="hero__subtitle">Проведите время с нашими усатыми друзьями или подарите одному из них новый дом</p>
+            <a href="#book" class="button button--primary button--with-icon">
+                <i class="fas fa-paw"></i>Забронировать визит
+            </a>
+        </div>
+    </section>
+
+    <!-- О ПРОЕКТЕ -->
+    <section class="section section--about" id="about">
+        <div class="container">
+            <h2 class="section__title">О нашем антикафе</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about__text">Мы создали уютное пространство, где каждый может отдохнуть от городской суеты в компании добрых и ласковых кошек.</p>
+                    <p class="about__text">Все наши постояльцы - это кошки, которым нужен дом. Мы помогаем им найти любящих хозяев, а посетителям - обрести верного друга.</p>
+                    <a href="#adopt" class="button button--with-icon">
+                        <i class="fas fa-heart"></i>Хочу укотовить
+                    </a>
+                </div>
+                <div class="about-image">
+                    <img src="assets/img/about.jpg" alt="Антикафе с кошками" class="about-image__img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- НАШИ КОТИКИ -->
+    <section class="section section--cats" id="cats">
+        <div class="container">
+            <h2 class="section__title">Наши котики</h2>
+            <div class="cat-cards">
+                <article class="cat-card">
+                    <div class="cat-card__image-wrapper">
+                        <img src="assets/img/cat1.png" alt="Снежок" class="cat-card__image">
+                    </div>
+                    <div class="cat-card__content">
+                        <h3 class="cat-card__name">Снежок</h3>
+                        <p class="cat-card__info"><strong>Возраст:</strong> 2 года</p>
+                        <p class="cat-card__info"><strong>Характер:</strong> Игривый и ласковый</p>
+                        <a href="#adopt" class="button button--block">Укотовить</a>
+                    </div>
+                </article>
+                <article class="cat-card">
+                    <div class="cat-card__image-wrapper">
+                        <img src="assets/img/cat2.png" alt="Мурка" class="cat-card__image">
+                    </div>
+                    <div class="cat-card__content">
+                        <h3 class="cat-card__name">Мурка</h3>
+                        <p class="cat-card__info"><strong>Возраст:</strong> 1 год</p>
+                        <p class="cat-card__info"><strong>Характер:</strong> Спокойная и нежная</p>
+                        <a href="#adopt" class="button button--block">Укотовить</a>
+                    </div>
+                </article>
+                <article class="cat-card">
+                    <div class="cat-card__image-wrapper">
+                        <img src="assets/img/cat3.png" alt="Барсик" class="cat-card__image">
+                    </div>
+                    <div class="cat-card__content">
+                        <h3 class="cat-card__name">Барсик</h3>
+                        <p class="cat-card__info"><strong>Возраст:</strong> 3 года</p>
+                        <p class="cat-card__info"><strong>Характер:</strong> Любопытный и дружелюбный</p>
+                        <a href="#adopt" class="button button--block">Укотовить</a>
+                    </div>
+                </article>
+                <article class="cat-card">
+                    <div class="cat-card__image-wrapper">
+                        <img src="assets/img/cat4.png" alt="Барин" class="cat-card__image">
+                    </div>
+                    <div class="cat-card__content">
+                        <h3 class="cat-card__name">Барин</h3>
+                        <p class="cat-card__info"><strong>Возраст:</strong> 1.5 года</p>
+                        <p class="cat-card__info"><strong>Характер:</strong> Активный и весёлый</p>
+                        <a href="#adopt" class="button button--block">Укотовить</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- АНТИКАФЕ -->
+    <section class="section section--cafe" id="cafe">
+        <div class="container">
+            <h2 class="section__title">Посетить антикафе</h2>
+            <div class="cafe-content">
+                <div class="cafe-rules">
+                    <h3 class="cafe-rules__title">Правила посещения:</h3>
+                    <ul class="cafe-rules__list">
+                        <li class="cafe-rules__item">Бронирование обязательно</li>
+                        <li class="cafe-rules__item">Максимум 8 человек в группе</li>
+                        <li class="cafe-rules__item">Дети до 12 лет - только с родителями</li>
+                        <li class="cafe-rules__item">Не кормите котиков своей едой</li>
+                        <li class="cafe-rules__item">Будьте осторожны и не пугайте животных</li>
+                    </ul>
+                </div>
+                <div class="cafe-pricing">
+                    <h3 class="cafe-pricing__title">Стоимость:</h3>
+                    <table class="pricing-table">
+                        <tr class="pricing-table__row">
+                            <td class="pricing-table__cell pricing-table__cell--service">1 час</td>
+                            <td class="pricing-table__cell pricing-table__cell--price">600 ₽</td>
+                        </tr>
+                        <tr class="pricing-table__row">
+                            <td class="pricing-table__cell pricing-table__cell--service">2 часа</td>
+                            <td class="pricing-table__cell pricing-table__cell--price">1100 ₽</td>
+                        </tr>
+                        <tr class="pricing-table__row">
+                            <td class="pricing-table__cell pricing-table__cell--service">3 и более часов</td>
+                            <td class="pricing-table__cell pricing-table__cell--price">1500 ₽</td>
+                        </tr>
+                        <tr class="pricing-table__row">
+                            <td class="pricing-table__cell pricing-table__cell--service">Чай/кофе</td>
+                            <td class="pricing-table__cell pricing-table__cell--price pricing-table__cell--gift">Бесплатно</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БРОНИРОВАНИЕ -->
+    <section class="section booking-section" id="book">
+        <div class="container">
+            <h2 class="booking-section__title">Забронировать визит</h2>
+            <div class="booking-container">
+                <form class="booking-form">
+                    <div class="booking-form__row">
+                        <div class="form-group">
+                            <label for="date" class="form-group__label">Дата *</label>
+                            <input type="date" id="date" class="form-group__input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time" class="form-group__label">Время *</label>
+                            <input type="time" id="time" class="form-group__input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="people" class="form-group__label">Количество человек *</label>
+                            <select id="people" class="form-group__input" required>
+                                <option value="">Выберите количество</option>
+                                <option value="1">1 человек</option>
+                                <option value="2">2 человека</option>
+                                <option value="3">3 человека</option>
+                                <option value="4">4 человека</option>
+                                <option value="5">5 человек</option>
+                                <option value="6">6 человек</option>
+                                <option value="7">7 человек</option>
+                                <option value="8">8 человек</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="button button--primary button--block">Забронировать</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- УКОТОВЛЕНИЕ -->
+    <section class="section section--adopt" id="adopt">
+        <div class="container">
+            <h2 class="section__title">Хочу укотовить!</h2>
+            <div class="adopt-content">
+                <div class="adopt-steps">
+                    <h3 class="adopt-steps__title">Этапы укотовления:</h3>
+                    <ol class="adopt-steps__list">
+                        <li class="adopt-steps__item">Познакомьтесь с котиками в нашем антикафе</li>
+                        <li class="adopt-steps__item">Заполните анкету потенциального владельца</li>
+                        <li class="adopt-steps__item">Пройдите собеседование с нашим куратором</li>
+                        <li class="adopt-steps__item">Заберите нового друга домой!</li>
+                    </ol>
+                    <p class="adopt-steps__warning">
+                        Важно: Мы заботимся о наших питомцах и хотим быть уверены, что они попадут в хорошие руки.
+                    </p>
+                </div>
+                <div class="adopt-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="form-group__label">Ваше имя *</label>
+                            <input type="text" id="name" class="form-group__input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-group__label">Телефон *</label>
+                            <input type="tel" id="phone" class="form-group__input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-group__label">Email *</label>
+                            <input type="email" id="email" class="form-group__input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-group__label">Расскажите о себе</label>
+                            <textarea id="message" class="form-group__textarea" placeholder="Расскажите немного о себе, своем жилье и опыте содержания животных"></textarea>
+                        </div>
+                        <button type="submit" class="button button--primary button--block">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ФУТЕР -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/logo.png" alt="Логотип" class="footer-logo__image">
+                    <span class="footer-logo__text">Укотовление</span>
+                </div>
+                <div class="footer-contacts">
+                    <div class="footer-contacts__item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>г. Москва, ул. Кошачья, д. 15</span>
+                    </div>
+                    <div class="footer-contacts__item">
+                        <i class="fas fa-phone"></i>
+                        <span>Телефон: +7 (495) 123-45-67</span>
+                    </div>
+                    <div class="footer-contacts__item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email: hello@ukotovlenie.ru</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="footer-social__link"><i class="fab fa-vk"></i></a>
+                <a href="#" class="footer-social__link"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="footer-social__link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="footer-social__link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="footer-copyright">© 2026 Все права защищены</p>
+        </div>
+    </footer>
+
+    <script>
+        // Бургер меню
+        const burgerMenu = document.querySelector('.burger-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        burgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-links--active');
+            burgerMenu.innerHTML = navLinks.classList.contains('nav-links--active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Закрытие меню при клике на ссылку
+        document.querySelectorAll('.nav-links__link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav-links--active');
+                burgerMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Закрытие меню при клике на любое место экрана
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('nav-links--active')) {
+                // Проверяем, что клик был НЕ на меню и НЕ на кнопке бургера
+                if (!navLinks.contains(e.target) && !burgerMenu.contains(e.target)) {
+                    navLinks.classList.remove('nav-links--active');
+                    burgerMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

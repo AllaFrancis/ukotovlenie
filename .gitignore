@@ -1,0 +1,5 @@
+# Игнорировать все фавиконы
+assets/favicons/*
+
+# Отслеживать только используемые в HTML
+!assets/favicons/favicon.ico
