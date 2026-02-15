@@ -1,5 +1,6 @@
 # Игнорировать все фавиконы
 assets/favicons/*
+assets/img/mindmap.png
 
 # Отслеживать только используемые в HTML
 !assets/favicons/favicon.ico

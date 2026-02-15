@@ -1,6 +1,6 @@
 /* ========================
-ГЛОБАЛЬНЫЕ СТИЛИ
-======================== */
+   ГЛОБАЛЬНЫЕ СТИЛИ
+   ======================== */
 :root {
     --lavender: #e6e6fa;
     --lavender-dark: #d8bfd8;
@@ -10,8 +10,8 @@
     --gray-dark: #4a4a4a;
     --white: #ffffff;
     --transition: all 0.3s ease;
-    }
-* {
+}
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -24,19 +24,28 @@ body {
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--gray-light);
     color: var(--gray-dark);
-    margin: 0;
-    padding: 0;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
+.stretch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    min-height: calc(100vh - 100px);
+}
 
 /* ========================
-ХЕДЕР
-======================== */
+   ХЕДЕР
+   ======================== */
 .header {
     background-color: var(--white);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -70,8 +79,6 @@ body {
     display: flex;
     gap: 1.5rem;
     list-style: none;
-    margin: 0;
-    padding: 0;
     align-items: center;
 }
 .nav-links__item {
@@ -85,8 +92,12 @@ body {
     font-size: 1.5rem;
     position: relative;
 }
+.nav-links__link.active,
 .nav-links__link:hover {
     color: var(--lavender-dark);
+}
+.nav-links__link.active {
+    font-weight: 700;
 }
 .nav-links__link::after {
     content: '';
@@ -98,9 +109,11 @@ body {
     background-color: var(--lavender-dark);
     transition: var(--transition);
 }
+.nav-links__link.active::after,
 .nav-links__link:hover::after {
     width: 100%;
 }
+
 /* Бургер меню */
 .burger-menu {
     display: none;
@@ -118,8 +131,8 @@ body {
 }
 
 /* ========================
-ГЕРОЙ-СЕКЦИЯ
-======================== */
+   ГЕРОЙ-СЕКЦИЯ
+   ======================== */
 .hero {
     background: linear-gradient(135deg, var(--lavender) 0%, var(--lavender-dark) 100%);
     color: var(--gray-dark);
@@ -128,30 +141,28 @@ body {
     position: relative;
     overflow: hidden;
 }
-.hero::before {
+.hero::before,
+.hero::after {
     content: '';
     position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+.hero::before {
     top: -50%;
     right: -10%;
     width: 400px;
     height: 400px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
 }
 .hero::after {
-    content: '';
-    position: absolute;
     bottom: -30%;
     left: -10%;
     width: 300px;
     height: 300px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
 }
 .hero__title {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
-    margin-top: 0;
+    margin: 0 0 1rem;
     font-weight: 700;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
@@ -164,19 +175,13 @@ body {
 }
 
 /* ========================
-ОБЩИЕ СТИЛИ СЕКЦИЙ
-======================== */
+   ОБЩИЕ СТИЛИ СЕКЦИЙ
+   ======================== */
 .section {
     padding: 4rem 1rem;
     background-color: var(--white);
 }
 .section--cats {
-    background-color: var(--lavender-light);
-}
-.section--cafe {
-    background-color: var(--white);
-}
-.booking-section{
     background-color: var(--lavender-light);
 }
 .section__title {
@@ -187,8 +192,8 @@ body {
 }
 
 /* ========================
-СЕКЦИЯ "О ПРОЕКТЕ"
-======================== */
+   СЕКЦИЯ "О ПРОЕКТЕ"
+   ======================== */
 .about-content {
     display: flex;
     align-items: center;
@@ -221,8 +226,8 @@ body {
 }
 
 /* ========================
-СЕКЦИЯ "НАШИ КОТИКИ"
-======================== */
+   СЕКЦИЯ "НАШИ КОТИКИ"
+   ======================== */
 .cat-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -258,8 +263,7 @@ body {
     padding: 1rem;
 }
 .cat-card__name {
-    margin-top: 0;
-    margin-bottom: 0.6rem;
+    margin: 0 0 0.6rem;
     color: var(--gray-dark);
     font-size: 1.5rem;
     font-weight: 600;
@@ -272,8 +276,8 @@ body {
 }
 
 /* ========================
-СЕКЦИЯ "УКОТОВЛЕНИЕ"
-======================== */
+   СЕКЦИЯ "УКОТОВЛЕНИЕ"
+   ======================== */
 .adopt-content {
     display: flex;
     gap: 3rem;
@@ -312,8 +316,8 @@ body {
 }
 
 /* ========================
-ФОРМЫ
-======================== */
+   ФОРМЫ
+   ======================== */
 .form-group {
     margin-bottom: 1rem;
 }
@@ -346,8 +350,8 @@ body {
 }
 
 /* ========================
-СЕКЦИЯ "АНТИКАФЕ"
-======================== */
+   СЕКЦИЯ "АНТИКАФЕ"
+   ======================== */
 .cafe-content {
     display: flex;
     flex-wrap: wrap;
@@ -410,10 +414,11 @@ body {
 }
 
 /* ========================
-СЕКЦИЯ "БРОНИРОВАНИE"
-======================== */
+   СЕКЦИЯ "БРОНИРОВАНИЕ"
+   ======================== */
 .booking-section {
-    padding-top: 3rem;
+    padding: 3rem 1rem 4rem;
+    background-color: var(--lavender-light);
     border-top: 2px solid var(--white);
 }
 .booking-section__title {
@@ -440,8 +445,288 @@ body {
 }
 
 /* ========================
-КНОПКИ
-======================== */
+   СЕКЦИЯ "КОНТАКТЫ"
+   ======================== */
+.contacts-layout {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+    justify-content: space-between;
+    width: 100%;
+}
+.contacts-column {
+    flex: 1;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.contact-info {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.contact-info__title {
+    margin: 0 0 1.5rem;
+    text-align: left;
+    font-size: 1.8rem;
+}
+.contact-info__item {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    color: var(--gray-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.contact-info__item i {
+    color: var(--lavender-dark);
+    font-size: 1.5rem;
+    min-width: 24px;
+}
+.contact-info__social {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+.contact-info__social-link {
+    color: var(--lavender);
+    text-decoration: none;
+    font-size: 2rem;
+    transition: var(--transition);
+    display: inline-block;
+}
+.contact-info__social-link:hover {
+    transform: translateY(-3px);
+    color: var(--gray-dark);
+}
+.map-container {
+    background: var(--white);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+.map-container iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 8px;
+    display: block;
+}
+.form-column {
+    flex: 1;
+    min-width: 350px;
+}
+.contact-form-wrapper {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.contact-form-wrapper__title {
+    text-align: left;
+    margin: 0 0 1.5rem;
+    font-size: 1.8rem;
+}
+.contact-form .form-group {
+    margin-bottom: 1.2rem;
+}
+.contact-form .form-group__label {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+}
+.contact-form .form-group__input,
+.contact-form .form-group__textarea {
+    font-size: 1.2rem;
+    padding: 0.7rem;
+    width: 100%;
+}
+.contact-form .button {
+    font-size: 1.2rem;
+    padding: 0.9rem;
+}
+
+/* ========================
+   СЕКЦИЯ "FAQ"
+   ======================== */
+.faq-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+.faq-card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    margin-top: 2rem;
+}
+.faq-question {
+    background: var(--lavender-light);
+    border: 1px solid var(--lavender);
+    width: 100%;
+    text-align: left;
+    padding: 1.2rem 1.8rem;
+    padding-bottom: 3rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--gray-dark);
+    cursor: pointer;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    transition: var(--transition);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-wrap: balance;
+    min-height: auto;
+}
+.faq-question:hover {
+    background: var(--lavender);
+    color: var(--white);
+}
+.faq-question::after {
+    content: '+';
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--lavender-dark);
+    transition: var(--transition);
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+.faq-question:hover::after,
+.faq-question.active::after {
+    color: var(--white);
+}
+.faq-question.active {
+    background: var(--lavender);
+    color: var(--white);
+}
+.faq-question.active::after {
+    content: '−';
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: var(--lavender-light);
+    border-radius: 8px;
+    padding: 0 1.8rem;
+    margin-bottom: 1rem;
+}
+.faq-answer.show {
+    max-height: 500px;
+    padding: 1.2rem 1.8rem;
+}
+.faq-answer__content {
+    color: var(--gray-dark);
+    line-height: 1.7;
+    font-size: 1.3rem;
+}
+
+/* ========================
+   СЕКЦИЯ "404"
+   ======================== */
+.error__code {
+    font-size: 8rem;
+    font-weight: 700;
+    color: var(--lavender-dark);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.error__message {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--gray-dark);
+}
+.error__description {
+    font-size: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+.error__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* ========================
+   МОДАЛЬНЫЕ ОКНА
+   ======================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+.modal--active {
+    display: flex;
+}
+.modal-content {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: modalOpen 0.3s ease-out;
+    position: relative;
+    max-width: 500px;
+    width: 90%;
+}
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gray);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.close:hover {
+    color: var(--gray-dark);
+}
+.modal__body {
+    text-align: center;
+    padding: 2rem;
+}
+.modal__icon {
+    font-size: 4rem;
+    color: var(--lavender-dark);
+    margin-bottom: 1rem;
+}
+.modal__title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+.modal__message {
+    color: var(--gray-dark);
+    margin-bottom: 1.5rem;
+}
+
+/* ========================
+   КНОПКИ
+   ======================== */
 .button {
     background-color: var(--lavender-dark);
     color: var(--white);
@@ -508,13 +793,14 @@ body {
 }
 
 /* ========================
-ФУТЕР
-======================== */
+   ФУТЕР
+   ======================== */
 .footer {
     background-color: var(--gray-dark);
     color: var(--white);
     text-align: center;
     padding: 2rem 1rem;
+    margin-top: auto;
 }
 .footer-content {
     display: flex;
@@ -574,22 +860,21 @@ body {
 }
 
 /* ========================
-АДАПТИВНОСТЬ
-======================== */
+   АДАПТИВНОСТЬ
+   ======================== */
 @media (max-width: 1200px) {
     .cat-cards {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
 @media (max-width: 992px) {
     .about-content,
     .adopt-content,
-    .cafe-content {
+    .cafe-content,
+    .contacts-layout {
         flex-direction: column;
         gap: 2rem;
-    }
-    .about-image {
-        max-width: 100%;
     }
     .booking-container {
         padding: 2rem;
@@ -597,8 +882,16 @@ body {
     .booking-form__row {
         grid-template-columns: repeat(2, 1fr);
     }
+    .contacts-column,
+    .form-column {
+        min-width: 100%;
+    }
+    .map-container iframe {
+        height: 350px;
+    }
 }
-@media (max-width: 768px) {
+
+@media (max-width: 930px) {
     .burger-menu {
         display: block;
     }
@@ -619,6 +912,9 @@ body {
     .nav-links--active {
         right: 0;
     }
+}
+
+@media (max-width: 768px) {
     .hero__title {
         font-size: 2rem;
     }
@@ -649,7 +945,37 @@ body {
         flex-direction: column;
         gap: 0.8rem;
     }
+    .map-container iframe {
+        height: 300px;
+    }
+    .contact-form-wrapper,
+    .contact-info {
+        padding: 1.8rem;
+    }
+    .map-container {
+        padding: 0.8rem;
+        height: 300px;
+    }
+    .faq-card {
+        padding: 1.8rem;
+    }
+    .faq-question {
+        padding: 1rem 1.5rem;
+        font-size: 1.3rem;
+        align-items: center;
+    }
+    .faq-question::after {
+        font-size: 1.6rem;
+        margin-left: 0.8rem;
+    }
+    .faq-answer.show {
+        padding: 1rem 1.5rem;
+    }
+    .faq-answer__content {
+        font-size: 1.2rem;
+    }
 }
+
 @media (max-width: 480px) {
     .hero {
         padding: 4rem 1rem;
@@ -682,5 +1008,65 @@ body {
     }
     .booking-container {
         padding: 1.5rem;
+    }
+    .map-container {
+        height: 250px;
+    }
+    .map-container iframe {
+        height: 250px;
+    }
+    .contact-item {
+        font-size: 1.2rem;
+    }
+    .contact-item i {
+        font-size: 1.3rem;
+    }
+    .contact-form-wrapper,
+    .contact-info {
+        padding: 1.5rem;
+    }
+    .contact-info p {
+        font-size: 1.2rem;
+    }
+    .contact-info__title,
+    .contact-form-wrapper__title {
+        font-size: 1.6rem;
+    }
+    .faq-wrapper {
+        padding: 2rem 1rem;
+    }
+    .faq-card {
+        padding: 1.5rem;
+    }
+    .faq-question {
+        padding: 1rem 1.5rem;
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+    .faq-question::after {
+        font-size: 1.5rem;
+        margin-left: 0.6rem;
+    }
+    .faq-answer.show {
+        padding: 0.9rem 1.2rem;
+    }
+    .faq-answer__content {
+        font-size: 1.15rem;
+    }
+    .error__code {
+        font-size: 6rem;
+    }
+    .error__message {
+        font-size: 2rem;
+    }
+    .error__description {
+        font-size: 1.3rem;
+    }
+    .error__buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .container {
+        padding: 0 15px;
     }
 }

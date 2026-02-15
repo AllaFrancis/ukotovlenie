@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты | Укотовление</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicons/favicon.ico">
+    
+    <!-- Miligram CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/milligram@1.4.1/dist/milligram.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Собственные стили -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navigation">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo.png" alt="Логотип Укотовление" class="logo__image">
+                    <span class="logo__text">Укотовление</span>
+                </a>
+                <ul class="nav-links">
+                    <li class="nav-links__item"><a href="index.html" class="nav-links__link">Главная</a></li>
+                    <li class="nav-links__item"><a href="index.html#about" class="nav-links__link">О нас</a></li>
+                    <li class="nav-links__item"><a href="index.html#cats" class="nav-links__link">Наши котики</a></li>
+                    <li class="nav-links__item"><a href="index.html#cafe" class="nav-links__link">Антикафе</a></li>
+                    <li class="nav-links__item"><a href="index.html#book" class="nav-links__link">Бронирование</a></li>
+                    <li class="nav-links__item"><a href="index.html#adopt" class="nav-links__link">Укотовить</a></li>
+                    <li class="nav-links__item"><a href="contacts.html" class="nav-links__link active">Контакты</a></li>
+                    <li class="nav-links__item"><a href="faq.html" class="nav-links__link">FAQ</a></li>
+                </ul>
+                <button class="burger-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section section--cats">
+            <div class="container contacts-container">
+                <h2 class="section__title">Контакты и обратная связь</h2>
+                
+                <!-- Основной макет: левая и правая колонки -->
+                <div class="contacts-layout">
+                    <!-- Левая колонка: контакты + карта -->
+                    <div class="contacts-column">
+                        <!-- Контакты -->
+                        <div class="contact-info">
+                            <h3 class="contact-info__title">Наши контакты</h3>
+                            <p class="contact-info__item"><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Кошачья, д. 15</p>
+                            <p class="contact-info__item"><i class="fas fa-phone"></i> +7 (495) 123-45-67</p>
+                            <p class="contact-info__item"><i class="fas fa-envelope"></i> hello@ukotovlenie.ru</p>
+                            <p class="contact-info__item"><i class="fas fa-clock"></i> Ежедневно: 10:00 - 20:00</p>
+                            
+                            <div class="contact-info__social">
+                                <a href="404.html" class="contact-info__social-link"><i class="fab fa-vk"></i></a>
+                                <a href="404.html" class="contact-info__social-link"><i class="fab fa-instagram"></i></a>
+                                <a href="404.html" class="contact-info__social-link"><i class="fab fa-telegram"></i></a>
+                            </div>
+                        </div>
+                        
+                        <!-- Карта -->
+                        <div class="map-container">
+                            <iframe 
+                                src="https://yandex.ru/map-widget/v1/?indoorLevel=1&ll=37.702017%2C55.795287&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1Njc0NzUxORI90KDQvtGB0YHQuNGPLCDQnNC-0YHQutCy0LAsINGD0LvQuNGG0LAg0KHRgtGA0L7QvNGL0L3QutCwLCAyMCIKDUnOFkIVUy1fQg%2C%2C&source=serp_navig&z=16.83" 
+                                frameborder="0" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                    <!-- Правая колонка: форма -->
+                    <div class="form-column">
+                        <div class="contact-form-wrapper">
+                            <h3 class="contact-form-wrapper__title">Оставьте отзыв</h3>
+                            <form id="contactForm" class="contact-form">
+                                <div class="form-group">
+                                    <label for="name" class="form-group__label">Ваше имя *</label>
+                                    <input type="text" id="name" class="form-group__input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="form-group__label">Email *</label>
+                                    <input type="email" id="email" class="form-group__input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject" class="form-group__label">Тема</label>
+                                    <select id="subject" class="form-group__input">
+                                        <option value="" disabled selected>Выберите тему</option>
+                                        <option>Предложение</option>
+                                        <option>Жалоба</option>
+                                        <option>Вопрос</option>
+                                        <option>Благодарность</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message" class="form-group__label">Сообщение *</label>
+                                    <textarea id="message" class="form-group__textarea" required></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="checkbox">
+                                        <input type="checkbox" required> Соглашаюсь на обработку персональных данных
+                                    </label>
+                                </div>
+                                
+                                <button type="submit" class="button button--block">Отправить отзыв</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ФУТЕР -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/img/logo.png" alt="Логотип" class="footer-logo__image">
+                    <span class="footer-logo__text">Укотовление</span>
+                </div>
+                <div class="footer-contacts">
+                    <div class="footer-contacts__item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>г. Москва, ул. Кошачья, д. 15</span>
+                    </div>
+                    <div class="footer-contacts__item">
+                        <i class="fas fa-phone"></i>
+                        <span>Телефон: +7 (495) 123-45-67</span>
+                    </div>
+                    <div class="footer-contacts__item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email: hello@ukotovlenie.ru</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="404.html" class="footer-social__link"><i class="fab fa-vk"></i></a>
+                <a href="404.html" class="footer-social__link"><i class="fab fa-telegram"></i></a>
+                <a href="404.html" class="footer-social__link"><i class="fab fa-instagram"></i></a>
+                <a href="404.html" class="footer-social__link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="footer-copyright">© 2026 Все права защищены</p>
+        </div>
+    </footer>
+
+    <!-- Модальное окно для отзыва -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('feedbackModal')">&times;</span>
+            <div class="modal__body">
+                <i class="fas fa-heart modal__icon"></i>
+                <h3 class="modal__title">Спасибо за отзыв!</h3>
+                <p class="modal__message">Мы ценим ваше мнение и свяжемся с вами в ближайшее время.</p>
+                <button class="button button--primary" onclick="closeModal('feedbackModal')">Понятно</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/menu.js"></script>
+
+    <!-- JS для обработки формы -->
+    <script>
+        // Функция для закрытия модального окна
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Обработка отправки формы после полной загрузки страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    console.log('Форма отправлена!');
+                    
+                    // Показать модальное окно
+                    document.getElementById('feedbackModal').style.display = 'flex';
+                    
+                    // Очистить форму после отправки
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

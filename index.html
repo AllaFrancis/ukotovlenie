@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Антикафе «Укотовление»</title>
 
-    <!-- convertico.com/Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicons/favicon.ico">
     
     <!-- Miligram CSS -->
@@ -20,20 +19,23 @@
     <header class="header">
         <div class="container">
             <nav class="navigation">
-                <a href="#" class="logo">
-                    <img src="assets/logo.png" alt="Логотип" class="logo__image">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo.png" alt="Логотип Укотовление" class="logo__image">
                     <span class="logo__text">Укотовление</span>
                 </a>
                 <ul class="nav-links">
+                    <li class="nav-links__item"><a href="index.html" class="nav-links__link active">Главная</a></li>
                     <li class="nav-links__item"><a href="#about" class="nav-links__link">О нас</a></li>
                     <li class="nav-links__item"><a href="#cats" class="nav-links__link">Наши котики</a></li>
                     <li class="nav-links__item"><a href="#cafe" class="nav-links__link">Антикафе</a></li>
                     <li class="nav-links__item"><a href="#book" class="nav-links__link">Бронирование</a></li>
                     <li class="nav-links__item"><a href="#adopt" class="nav-links__link">Укотовить</a></li>
+                    <li class="nav-links__item"><a href="contacts.html" class="nav-links__link">Контакты</a></li>
+                    <li class="nav-links__item"><a href="faq.html" class="nav-links__link">FAQ</a></li>
                 </ul>
                 <button class="burger-menu">
                     <i class="fas fa-bars"></i>
-                </button>
+                </button>            
             </nav>
         </div>
     </header>
@@ -100,7 +102,7 @@
                         <img src="assets/img/cat3.png" alt="Барсик" class="cat-card__image">
                     </div>
                     <div class="cat-card__content">
-                        <h3 class="cat-card__name">Барсик</h3>
+                        <h3 class="cat-card__name">Маркиз</h3>
                         <p class="cat-card__info"><strong>Возраст:</strong> 3 года</p>
                         <p class="cat-card__info"><strong>Характер:</strong> Любопытный и дружелюбный</p>
                         <a href="#adopt" class="button button--block">Укотовить</a>
@@ -244,7 +246,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="assets/logo.png" alt="Логотип" class="footer-logo__image">
+                    <img src="assets/img/logo.png" alt="Логотип" class="footer-logo__image">
                     <span class="footer-logo__text">Укотовление</span>
                 </div>
                 <div class="footer-contacts">
@@ -263,44 +265,58 @@
                 </div>
             </div>
             <div class="footer-social">
-                <a href="#" class="footer-social__link"><i class="fab fa-vk"></i></a>
-                <a href="#" class="footer-social__link"><i class="fab fa-telegram"></i></a>
-                <a href="#" class="footer-social__link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="footer-social__link"><i class="fab fa-whatsapp"></i></a>
+                <a href="404.html" class="footer-social__link"><i class="fab fa-vk"></i></a>
+                <a href="404.html" class="footer-social__link"><i class="fab fa-telegram"></i></a>
+                <a href="404.html" class="footer-social__link"><i class="fab fa-instagram"></i></a>
+                <a href="404.html" class="footer-social__link"><i class="fab fa-whatsapp"></i></a>
             </div>
             <p class="footer-copyright">© 2026 Все права защищены</p>
         </div>
     </footer>
 
+    <!-- Модальное окно -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal__body">
+                <i class="fas fa-check-circle modal__icon"></i>
+                <h3 class="modal__title">Визит забронирован!</h3>
+                <p class="modal__message">Спасибо за бронирование. Ждем вас в гости!</p>
+                <button class="button button--primary" onclick="document.getElementById('bookingModal').style.display='none'">Понятно</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для заявки на укотовление -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('applicationModal').style.display='none'">&times;</span>
+            <div class="modal__body">
+                <i class="fas fa-paw modal__icon"></i>
+                <h3 class="modal__title">Заявка отправлена!</h3>
+                <p class="modal__message">Спасибо за интерес к нашим котикам! Наш куратор свяжется с вами в ближайшее время для обсуждения деталей.</p>
+                <button class="button button--primary" onclick="document.getElementById('applicationModal').style.display='none'">Понятно</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/menu.js"></script>
+
+    <!-- JS для обработки формы заявки -->
     <script>
-        // Бургер меню
-        const burgerMenu = document.querySelector('.burger-menu');
-        const navLinks = document.querySelector('.nav-links');
-        
-        burgerMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-links--active');
-            burgerMenu.innerHTML = navLinks.classList.contains('nav-links--active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+        // Модальное окно для бронирования
+        document.querySelector('.booking-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('bookingModal').style.display = 'flex';
         });
-        
-        // Закрытие меню при клике на ссылку
-        document.querySelectorAll('.nav-links__link').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('nav-links--active');
-                burgerMenu.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-        
-        // Закрытие меню при клике на любое место экрана
-        document.addEventListener('click', (e) => {
-            if (navLinks.classList.contains('nav-links--active')) {
-                // Проверяем, что клик был НЕ на меню и НЕ на кнопке бургера
-                if (!navLinks.contains(e.target) && !burgerMenu.contains(e.target)) {
-                    navLinks.classList.remove('nav-links--active');
-                    burgerMenu.innerHTML = '<i class="fas fa-bars"></i>';
-                }
-            }
+
+        // Модальное окно для заявки на укотовление
+        document.querySelector('.adopt-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('applicationModal').style.display = 'flex';
+            
+            // Очистить форму после отправки
+            this.reset();
         });
     </script>
 </body>
