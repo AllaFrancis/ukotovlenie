@@ -12,6 +12,24 @@
     
     <!-- Собственные стили -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Стили для формы (подсветка полей с ошибками) -->
+    <style> 
+        .input-error {
+            border-color: #f34f4f !important;
+            background-color: #fff9f9;
+        }
+        .error-message {
+            color: #f34f4f;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        form {
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -77,39 +95,71 @@
                         <div class="contact-form-wrapper">
                             <h3 class="contact-form-wrapper__title">Оставьте отзыв</h3>
                             <form id="contactForm" class="contact-form">
+                                <!-- Поле Имя -->
                                 <div class="form-group">
-                                    <label for="name" class="form-group__label">Ваше имя *</label>
-                                    <input type="text" id="name" class="form-group__input" required>
+                                    <label for="contactName" class="form-group__label">Ваше имя *</label>
+                                    <input 
+                                        type="text" 
+                                        id="contactName" 
+                                        class="form-group__input" 
+                                        placeholder="Иванов Иван" 
+                                        required
+                                    >
+                                    <span class="error-message" id="nameError"></span>
                                 </div>
-                                
+
+                                <!-- Поле Email -->
                                 <div class="form-group">
-                                    <label for="email" class="form-group__label">Email *</label>
-                                    <input type="email" id="email" class="form-group__input" required>
+                                    <label for="contactEmail" class="form-group__label">Email *</label>
+                                    <input 
+                                        type="email" 
+                                        id="contactEmail" 
+                                        class="form-group__input" 
+                                        placeholder="example@mail.ru" 
+                                        required
+                                    >
+                                    <span class="error-message" id="emailError"></span>
                                 </div>
-                                
+
+                                <!-- Поле Тема -->
                                 <div class="form-group">
-                                    <label for="subject" class="form-group__label">Тема</label>
-                                    <select id="subject" class="form-group__input">
-                                        <option value="" disabled selected>Выберите тему</option>
-                                        <option>Предложение</option>
-                                        <option>Жалоба</option>
-                                        <option>Вопрос</option>
-                                        <option>Благодарность</option>
+                                    <label for="contactTopic" class="form-group__label">Тема</label>
+                                    <select id="contactTopic" class="form-group__input">
+                                        <option value="">Выберите тему</option>
+                                        <option value="proposal">Предложение</option>
+                                        <option value="complaint">Жалоба</option>
+                                        <option value="question">Вопрос</option>
+                                        <option value="thanks">Благодарность</option>
                                     </select>
+                                    <span class="error-message" id="topicError"></span>
                                 </div>
-                                
+
+                                <!-- Поле Сообщение -->
                                 <div class="form-group">
-                                    <label for="message" class="form-group__label">Сообщение *</label>
-                                    <textarea id="message" class="form-group__textarea" required></textarea>
+                                    <label for="contactMessage" class="form-group__label">Сообщение *</label>
+                                    <textarea 
+                                        id="contactMessage" 
+                                        class="form-group__textarea" 
+                                        placeholder="Ваше сообщение..." 
+                                        rows="5"
+                                        required
+                                    ></textarea>
+                                    <span class="error-message" id="messageError"></span>
                                 </div>
-                                
+
+                                <!-- Чекбокс согласия -->
                                 <div class="form-group">
-                                    <label class="checkbox">
-                                        <input type="checkbox" required> Соглашаюсь на обработку персональных данных
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="contactAgreement" required>
+                                        <span>Соглашаюсь на обработку персональных данных *</span>
                                     </label>
+                                    <span class="error-message" id="agreementError"></span>
                                 </div>
-                                
-                                <button type="submit" class="button button--block">Отправить отзыв</button>
+
+                                <!-- Кнопка отправки -->
+                                <button type="submit" class="button button--primary button--block">
+                                    <i class="fas fa-paper-plane"></i> Отправить отзыв
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -151,45 +201,20 @@
         </div>
     </footer>
 
-    <!-- Модальное окно для отзыва -->
-    <div id="feedbackModal" class="modal">
+    <!-- Модальное окно для формы обратной связи -->
+    <div id="contactModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('feedbackModal')">&times;</span>
+            <span class="close">&times;</span>
             <div class="modal__body">
-                <i class="fas fa-heart modal__icon"></i>
+                <i class="fas fa-check-circle modal__icon"></i>
                 <h3 class="modal__title">Спасибо за отзыв!</h3>
                 <p class="modal__message">Мы ценим ваше мнение и свяжемся с вами в ближайшее время.</p>
-                <button class="button button--primary" onclick="closeModal('feedbackModal')">Понятно</button>
+                <button class="button button--primary">Понятно</button>
             </div>
         </div>
     </div>
 
     <script src="scripts/menu.js"></script>
-
-    <!-- JS для обработки формы -->
-    <script>
-        // Функция для закрытия модального окна
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        // Обработка отправки формы после полной загрузки страницы
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    console.log('Форма отправлена!');
-                    
-                    // Показать модальное окно
-                    document.getElementById('feedbackModal').style.display = 'flex';
-                    
-                    // Очистить форму после отправки
-                    this.reset();
-                });
-            }
-        });
-    </script>
+    <script src="scripts/contacts_validation.js"></script>
 </body>
 </html>

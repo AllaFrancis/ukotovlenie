@@ -13,6 +13,24 @@
     
     <!-- Собственные стили -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Стили для формы (подсветка полей с ошибками) -->
+    <style> 
+        .input-error {
+            border-color: #f34f4f !important;
+            background-color: #fff9f9;
+        }
+        .error-message {
+            color: #f34f4f;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        form {
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 <body>
     <!-- ХЕДЕР -->
@@ -175,8 +193,8 @@
                             <input type="date" id="date" class="form-group__input" required>
                         </div>
                         <div class="form-group">
-                            <label for="time" class="form-group__label">Время *</label>
-                            <input type="time" id="time" class="form-group__input" required>
+                            <label for="time" class="form-group__label">Время * (с 10:00 до 20:00)</label>
+                            <input type="time" id="time" class="form-group__input" required min="10:00" max="20:00">
                         </div>
                         <div class="form-group">
                             <label for="people" class="form-group__label">Количество человек *</label>
@@ -217,24 +235,42 @@
                     </p>
                 </div>
                 <div class="adopt-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name" class="form-group__label">Ваше имя *</label>
-                            <input type="text" id="name" class="form-group__input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="form-group__label">Телефон *</label>
-                            <input type="tel" id="phone" class="form-group__input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-group__label">Email *</label>
-                            <input type="email" id="email" class="form-group__input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-group__label">Расскажите о себе</label>
-                            <textarea id="message" class="form-group__textarea" placeholder="Расскажите немного о себе, своем жилье и опыте содержания животных"></textarea>
-                        </div>
-                        <button type="submit" class="button button--primary button--block">Отправить заявку</button>
+                    <!-- Форма с ID для JS -->
+                    <form id="adoptForm">
+                        <fieldset>
+                            <!-- Поле Имя (ФИО) -->
+                            <div class="form-group">
+                                <label for="adoptName" class="form-group__label">Ваше имя *</label>
+                                <input type="text" id="adoptName" class="form-group__input" placeholder="Иванов Иван" required>
+                                <span class="error-message" id="nameError"></span>
+                            </div>
+
+                            <!-- Поле Телефон -->
+                            <div class="form-group">
+                                <label for="adoptPhone" class="form-group__label">Телефон *</label>
+                                <input type="tel" id="adoptPhone" class="form-group__input"  
+                                       placeholder="+7 (___) ___-__-__"
+                                       pattern="[0-9\s\(\)\-\+]+" 
+                                       inputmode="numeric" 
+                                       required>
+                                <span class="error-message" id="phoneError"></span>
+                            </div>
+
+                            <!-- Поле Email -->
+                            <div class="form-group">
+                                <label for="adoptEmail" class="form-group__label">Email *</label>
+                                <input type="email" id="adoptEmail" class="form-group__input" placeholder="example@mail.ru" required>
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+
+                            <!-- Поле Сообщение -->
+                            <div class="form-group">
+                                <label for="adoptMessage" class="form-group__label">Расскажите о себе</label>
+                                <textarea id="adoptMessage" class="form-group__textarea" placeholder="Расскажите немного о себе, своем жилье и опыте содержания животных"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="button button--primary button--block">Отправить заявку</button>
+                        </fieldset>
                     </form>
                 </div>
             </div>
@@ -301,23 +337,7 @@
     </div>
 
     <script src="scripts/menu.js"></script>
-
-    <!-- JS для обработки формы заявки -->
-    <script>
-        // Модальное окно для бронирования
-        document.querySelector('.booking-form')?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('bookingModal').style.display = 'flex';
-        });
-
-        // Модальное окно для заявки на укотовление
-        document.querySelector('.adopt-form')?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('applicationModal').style.display = 'flex';
-            
-            // Очистить форму после отправки
-            this.reset();
-        });
-    </script>
+    <script src="scripts/adopt_validation.js"></script>
+    <script src="scripts/booking_validation.js"></script>
 </body>
 </html>
